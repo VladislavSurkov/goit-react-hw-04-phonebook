@@ -23,7 +23,7 @@ export const App = () => {
         i.number === contact.number
     )
       ? alert(`${name} is already in contacts`)
-      : setContacts([contact, ...contacts]);
+      : setContacts(prevContacts => [contact, ...prevContacts]);
   };
 
   const findContacts = () => {
@@ -37,7 +37,7 @@ export const App = () => {
   };
 
   const deleteContact = id => {
-    setContacts(contacts.filter(contact => contact.id !== id));
+    setContacts(prevContacts =>prevContacts.filter(contact => contact.id !== id));
   };
 
   return (
